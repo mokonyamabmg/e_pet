@@ -77,3 +77,21 @@ option 2 (complex approach)
             - value: upload the product_category.csv file
 
 9. refresh the page and you are goo to go !!!!!!!!!!!!!!!!!!!.
+
+
+
+
+
+======================================================
+
+Login Details for Admin
+
+
+email: admin@admin.com
+password: 12345678
+
+
+Login Details for User (Users can be created upon registration)
+
+email: mokonyamabmg@gmail.com
+password: 12345678
