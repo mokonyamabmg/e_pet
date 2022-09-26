@@ -1,0 +1,48 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "devDependencies": {
+        "@vue/compiler-sfc": "^3.2.39",
+        "axios": "^0.19",
+        "cross-env": "^7.0.3",
+        "laravel-mix": "^6.0.0-beta.17",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.16",
+        "resolve-url-loader": "^3.1.0",
+        "sass": "^1.54.9",
+        "sass-loader": "^8.0.0",
+        "vue": "^3.2.39",
+        "vue-loader": "^16.2.0",
+        "vue-template-compiler": "^2.7.10",
+        "webpack": "^5.74.0"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^29.1.0",
+        "@ckeditor/ckeditor5-special-characters": "^31.0.0",
+        "@ckeditor/ckeditor5-vue": "^2.0.1",
+        "@hennge/vue3-pagination": "^1.0.17",
+        "@vueform/multiselect": "^2.5.2",
+        "@wwalc/ckeditor5-emoji": "^11.0.2",
+        "ckeditor4-vue": "^1.4.0",
+        "laravel-echo": "^1.14.0",
+        "moment": "^2.29.4",
+        "moment-duration-format": "^2.3.2",
+        "moment-timezone": "^0.5.37",
+        "vue-debounce": "^3.1.1",
+        "vue-material": "^1.0.0-beta-15",
+        "vue-multi-select": "^4.6.0",
+        "vue-multiselect": "^2.1.6",
+        "vue-router": "^4.1.5",
+        "vue3-autocounter": "^1.0.6",
+        "vuelidate": "^0.7.6",
+        "vuex": "^4.0.2"
+    }
+}
