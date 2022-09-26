@@ -1,61 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# ePetStore_assessment
+Application that allows you a user to view variaty of categories, products and variants for a pet store.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Getting Started
+To begin using this template, choose one of the following options to get started:
 
-## About Laravel
+* [Download the latest release here](https://github.com/mokonyamabmg/ePetStore_assessment/archive/refs/heads/main.zip)
+* Clone the repo: git clone git@github.com:mokonyamabmg/ePetStore_assessment.git
+* Fork the repo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Start the project
+The project is started with the regular Laravel and Vue commands.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+step 1 - run composer install, to install php dependency files
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+step 2 - run npm install, to install NPM dependicies
 
-## Learning Laravel
+step 3 - DB and App setup - There is two approaches to setup db and run the app
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+==============================================================================
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+option 1 (simple approach)
 
-## Laravel Sponsors
+1. create DB from mysql [pet_store_db] 
+2. import the pet_store_db.sql file found in the project.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+3. configure the .env file found in the root of the project
 
-### Premium Partners
+  DB_DATABASE=pet_store_db
+  DB_USERNAME=[username]
+  DB_PASSWORD=[password]
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+4. run 'php artisan serve' to run the laravel server
+5. run 'npm run watch' to run the vue server
+6. you are good to go!!!!!!!!
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+option 2 (complex approach)
 
-## Security Vulnerabilities
+===========================================================================================
+1. create DB from mysql [pet_store_db] 
+2. configure the .env file found in the root of the project
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+  DB_DATABASE=pet_store_db
+  DB_USERNAME=[username]
+  DB_PASSWORD=[password]
+  
+3. run 'php artisan migrate', to migrate the DB
+4. run 'php artisan db:seed', to populate the users and roles table
+5. run 'php artisan serve' to run the laravel server
+6. run 'npm run watch' to run the vue server
+7. populate the categories, products, product_category and variants tables. importing the csv files found in the csv folder in the app root and the below end points. note, use Postman to execute the endpoints!!!!
 
-## License
+- Populate categories table.
+  Request - POST
+  Endpoint - http://127.0.0.1:8000/api/categories/importCategories
+  Form-data - key: file [change type to file]
+            - value: upload the categories.csv 
+- Populate products table.
+  Request - POST
+  Endpoint - http://127.0.0.1:8000/api/products/importProducts
+  Form-data - key: file [change type to file]
+            - value: upload the products.csv file
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Populate variants table.
+  Request - POST
+  Endpoint - http://127.0.0.1:8000/api/variants/importVariants
+  Form-data - key: file [change type to file]
+            - value: upload the variant.csv file
+  
+  - Populate product_category table.
+  Request - POST
+  Endpoint - http://127.0.0.1:8000/api/importProductCategories
+  Form-data - key: file [change type to file]
+            - value: upload the product_category.csv file
+
+9. refresh the page and you are goo to go !!!!!!!!!!!!!!!!!!!.
